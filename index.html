@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Responsive Creative Design</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          background-color: #fff;
+          color: #333;
+        }
+
+        .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between; /* space between logo and links */
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+
+
+
+        .im {
+          width: 100%;
+          height: 400px;
+          overflow: hidden;
+        }
+
+        .im img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        h1, h2 {
+          padding: 20px 2rem 10px;
+          color: #222;
+        }
+
+        p {
+          padding: 0 2rem 1rem;
+        }
+
+        button {
+          margin: 10px 2rem;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background 0.3s ease;
+        }
+
+        button:first-of-type {
+          background-color: black;
+          color: white;
+        }
+
+        button:first-of-type:hover {
+          background-color: #333;
+        }
+
+        button:last-of-type {
+          background-color: #f2f2f2;
+        }
+
+        hr {
+          margin: 30px 0;
+          border: none;
+          border-top: 1px solid #ccc;
+        }
+
+        .container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          padding: 20px;
+          background-color: #f9f9f9;
+          flex-wrap: wrap;
+        }
+
+        .box {
+          flex: 1 1 45%;
+          min-width: 300px;
+          height: 300px;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+        .box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .slo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 2rem;
+        }
+
+        .slider {
+          width: 100%;
+          max-width: 600px;
+          height: 400px;
+          overflow: hidden;
+          position: relative;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .slides {
+          display: flex;
+          width: 400%;
+          height: 100%;
+          transition: margin-left 0.6s ease-in-out;
+        }
+
+        .slide {
+          width: 100%;
+          flex-shrink: 0;
+        }
+
+        .slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        #radio1:checked ~ .slides {
+          margin-left: 0%;
+        }
+        #radio2:checked ~ .slides {
+          margin-left: -100%;
+        }
+        #radio3:checked ~ .slides {
+          margin-left: -200%;
+        }
+        #radio4:checked ~ .slides {
+          margin-left: -300%;
+        }
+
+        .navigation-manual {
+          position: absolute;
+          width: 100%;
+          bottom: 15px;
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+        }
+
+        .manual-btn {
+          border: 2px solid #fff;
+          padding: 5px;
+          border-radius: 50%;
+          cursor: pointer;
+          background-color: rgba(255,255,255,0.5);
+          transition: background 0.3s;
+        }
+
+        .manual-btn:hover {
+          background-color: #fff;
+        }
+    /*
+        .container1 {
+          max-width: 1000px;
+          margin: 20px auto;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          padding: 0 20px;
+          gap: 20px;
+        }
+
+        .box1 {
+          flex: 1 1 30%;
+          background-color: white;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 20px;
+          min-width: 250px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .box1 h3 {
+          margin-bottom: 10px;
+          color: black;
+        }
+
+        */
+
+
+        /* logo box  */
+
+
+        .container1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 20px;
+      padding: 0 20px;
+      flex-wrap: nowrap; /* Prevent wrap */
+    }
+
+    .box1 {
+      flex: 1 1 30%;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .box-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive: stack on small screen */
+    @media (max-width: 900px) {
+      .container1 {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .box1 {
+        flex: 1 1 90%;
+        margin-bottom: 20px;
+      }
+    }
+
+
+
+        /* logo box  */
+
+        .special-section {
+          background-color: black;
+          color: white;
+          padding: 2rem;
+          text-align: center;
+        }
+
+        .special-section pre {
+          color: #ccc;
+          font-size: 1rem;
+          white-space: pre-wrap;
+        }
+
+        .special-button {
+          background-color: #f9f9f9;
+          padding: 10px 20px;
+          border-radius: 20px;
+          margin-top: 10px;
+        }
+
+        .special-button:hover {
+          background-color: #e0e0e0;
+        }
+
+        /* ---------- Responsive Media Queries ---------- */
+        @media (max-width: 768px) {
+          .navbar {
+            flex-direction: column;
+            padding: 1rem;
+          }
+
+          h1, h2, p, button {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            text-align: center;
+          }
+
+          .container1 {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .box1 {
+            width: 90%;
+          }
+
+          .slider {
+            height: 250px;
+          }
+
+          .container {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .box {
+            width: 90%;
+            height: 250px;
+          }
+        }
+
+        /*  for FAQ*/
+           .faq-container {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .faq-item input {
+      display: none;
+    }
+
+    .faq-item label {
+      display: block;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .faq-item label::after {
+      content: '▼'; /* Closed dropdown arrow */
+      position: absolute;
+      right: 0;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item input:checked + label::after {
+      content: '▲'; /* Open dropdown arrow */
+    }
+
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-left: 10px;
+      color: #555;
+    }
+
+    .faq-item input:checked ~ .faq-content {
+      max-height: 200px;
+      padding: 10px 0;
+    }
+
+
+        /*  end FAQ*/
+
+    /*  Footer css*/
+    .footer {
+      background-color: white;
+      padding: 40px 40px 20px;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 150px;
+      text-align: left;
+    }
+
+    .footer-logo-img {
+      height: 60px;
+      width: auto;
+      margin-top: 10px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #007BFF;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+      margin-top: 30px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .footer-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-column {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo-img {
+        margin: 0 auto;
+      }
+    }
+
+
+
+    /*  end footer css*/
+
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="img/logo.png" alt="Logo" />
+    </div>
+    <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#price">PriceCalculator</a>
+        <a href="#service">Service</a>
+        <a href="#material">Material</a>
+        <a href="#about">About</a>
+        <a href="#contact">ContactUs</a>
+    </div>
+</nav>
+
+<!-- Hero Image -->
+<div class="im">
+    <img src="1.jpg" alt="Main Image">
+</div>
+
+<h1>Your Dream Home Starts Here</h1>
+<p>We at Just Creative Design, turn your house into a home with interiors that are stylish, functional, and uniquely yours.</p>
+<button>Book A Free Consultation Call</button>
+<button>Get A Free Quote</button>
+
+<hr>
+
+<!-- Info Section -->
+<h2>Transforming Spaces, Changing Lives</h2>
+<p>We elevate ordinary areas to extraordinary spaces that capture your vision and style.</p>
+<img src="img/4.png" width="100%" height="600px" alt="Transforming Spaces">
+
+<h1>Tailored Design Solution For Every Corner Of Your Home</h1>
+<p>From the first sketch to the final touch, our expert team ensures your vision is brought to life with beautifully designed, functional spaces that you'll love coming home to every day.</p>
+<img src="img/1.png" width="100%" height="600px" alt="Tailored Design">
+
+<!-- Specialization -->
+<div class="special-section">
+    <h2 style="color: white;">We Specialize In</h2>
+    <marquee direction="left" scrollamount="5" style="background-color:black; color:rgba(255, 255, 255, 0.89); padding: 10px; font-weight: bold;">
+        Color Consultation & Plette Selection.   Light Desig & Installation. Custum Furniture Design.  3D Visualization & Mockup
+    </marquee>
+</div>
+
+<!-- Image Row -->
+<div class="container">
+    <div class="box"><img src="img/2.png" alt="Design 1"></div>
+    <div class="box"><img src="img/3.png" alt="Design 2"></div>
+</div>
+
+<!-- Materials Section -->
+<div class="special-section">
+    <h2 style="color: white;">We Design Homes That Are Built To Last</h2>
+    <pre>Your home deserves the best. That’s why we use only the finest materials to ensure your home not only looks stunning but also stands the test of time.</pre>
+    <button class="special-button">Find out how we do it</button>
+</div>
+
+<h1>Trusted by 100+ Homeowners Just Like You</h1>
+<p>Don't just take our word for it—hear from the clients whose homes we've transformed.</p>
+
+<!-- Auto-Playing Slider -->
+<div class="slo">
+    <div class="slider">
+        <input type="radio" name="slider" id="radio1" checked>
+        <input type="radio" name="slider" id="radio2">
+        <input type="radio" name="slider" id="radio3">
+        <input type="radio" name="slider" id="radio4">
+
+        <div class="slides" id="slideContainer">
+            <div class="slide"><img src="1.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="3.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="4.jpg" alt="Slide 3"></div>
+            <div class="slide"><img src="5.jpg" alt="Slide 4"></div>
+        </div>
+
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+        </div>
+    </div>
+</div>
+
+<hr>
+<!--for box logo-->
+<h1>Why Choose Just Creative Design</h1>
+<div class="container1">
+    <div class="box1">
+        <img src="img/logo2.png" alt="Expert Design Icon" class="box-icon">
+        <h3>Expert Design</h3>
+        <p>We bring your vision to life with creative and personalized interior design solutions, ensuring every detail is crafted to perfection.</p>
+    </div>
+    <div class="box1">
+        <img src="img/logo3.png" alt="Guaranteed Icon" class="box-icon">
+        <h3>Guaranteed</h3>
+        <p>Your satisfaction is our priority, and we won't rest until yor're completely happy with your new space.</p>
+    </div>
+    <div class="box1">
+        <img src="img/logo1.png" alt="Delivery Icon" class="box-icon">
+        <h3>Delivery</h3>
+        <p>We respect your time and ensure that your project is completed on schedule without compromising on quality.</p>
+    </div>
+</div>
+
+<!--for box logo-->
+
+<div class="special-section">
+    <h2 style="color: white;">Ready To Bring Your Vision To Life?</h2>
+    <button class="special-button">Find out how we do it</button>
+</div>
+
+<!--for FAQ-->
+
+
+
+    <h1 style="text-align: center; padding: 2rem;">FAQ</h1>
+    <div class="faq-container">
+        <div class="faq-item">
+            <input type="checkbox" id="faq1">
+            <label for="faq1">What services do you offer ?</label>
+            <div class="faq-content">
+                <p>It typically takes 4-12 weeks depending on the size and complexity of the project.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq2">
+            <label for="faq2">How long does the design processs take?</label>
+            <div class="faq-content">
+                <p>Yes! We provide a free consultation to understand your needs and goals before we begin.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq3">
+            <label for="faq3">Do you offer design services for specific types of spaces</label>
+            <div class="faq-content">
+                <p>Yes, we specialize in residential interior design , covering everything from living rooms and kitchens to wardropes and more.Our services are tailored to create beautiful and function spaces in your home.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq4">
+            <label for="faq4">How do I get started with my project?</label>
+            <div class="faq-content">
+                <p>Yes, all designs are customized based on your style, space, and preferences.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <!--end FAQ-->
+    <!--for Footer-->
+    <footer class="footer">
+        <div class="footer-row">
+            <div class="footer-column">
+                <img src="img/logo.png" alt="Footer Logo" class="footer-logo-img">
+            </div>
+            <div class="footer-column">
+                <h3>Shop By</h3>
+                <ul>
+                    <li><a href="#">Wardrobe</a></li>
+                    <li><a href="#">Kitchen</a></li>
+                    <li><a href="#">Kids</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Get Help</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><a href="mailto:adf@gmail.com">info@justcreativedesign.in</a></p>
+                <p><a href="#">+91-98884456466</a></p>
+                <p><a href="#">instagram</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Just Creative Design- All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <!--end Footer-->
+
+
+    <!-- Auto-slider Script -->
+    <script>
+        let counter = 1;
+        setInterval(() => {
+          document.getElementById('radio' + counter).checked = true;
+          counter++;
+          if (counter > 4) counter = 1;
+        }, 4000);
+    </script>
+
+</body>
+</html>
